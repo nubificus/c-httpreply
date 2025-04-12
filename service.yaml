@@ -1,0 +1,13 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: hellocontainerc
+spec:
+  template:
+    spec:
+      containers:
+        - image: harbor.nbfc.io/nubificus/knative-example-functions/httpreply-c:latest
+          imagePullPolicy: Always
+          env:
+            - name: RUNTIMECLASS
+              value: "generic"
